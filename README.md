@@ -6,6 +6,7 @@ Terraform module for creating needed AWS resources for attaching given subnet(s)
 | Name              | Description                                      | Type         | Default | Sensitive |
 |-------------------|--------------------------------------------------|--------------|---------|-----------|
 | `vpc_id`          | VPC ID                                           | `string`     | n/a     | no        |
+| `name`            | Name tag for the transit gateway attachment      | `string`     | `""`    | no        |
 | `amazon_side_asn` | ASN of the transit gateway to attach to          | `number`     | n/a     | no        |
 | `subnet_ids`      | List of subnet IDs to attach transit gateway     | `list(string)` | n/a   | no        |
 | `tgw_routes`      | List of CIDR blocks to route via TGW             | `set(string)` | `[]`   | no        |
@@ -17,6 +18,7 @@ Terraform module for creating needed AWS resources for attaching given subnet(s)
 module "onprem_transitgw" {
   source = "git::https://github.com/Nets-Platform-Enablement/tf-module-tgw-attachment?ref=v0.1.0"
   vpc_id      = "vpc-123456789abcdef"
+  name        = "example-name"
   subnet_ids  = [
     "subnet-abcdefg0123456789",
     "subnet-987654321gfedcba0",

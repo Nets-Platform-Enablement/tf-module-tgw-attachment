@@ -3,6 +3,13 @@ variable "vpc_id" {
   type = string
 }
 
+variable "name" {
+  description = "Name tag for the transit gateway attachment"
+  type = string
+  sensitive = false
+  default = ""
+}
+
 variable "amazon_side_asn" {
   type = number
   description = "ASN of the transit gateway to attach to"

@@ -6,7 +6,9 @@ resource "aws_ec2_transit_gateway_vpc_attachment" "this" {
   transit_gateway_id = data.aws_ec2_transit_gateway.target.id
   vpc_id             = var.vpc_id
 
-  tags = var.tags
+  tags = merge(var.tags, {
+    Name = var.name
+  })
 }
 
 data "aws_ec2_transit_gateway" "target" {

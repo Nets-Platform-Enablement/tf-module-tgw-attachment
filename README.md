@@ -18,8 +18,12 @@ module "onprem_transitgw" {
   source = "git::https://github.com/Nets-Platform-Enablement/tf-module-tgw-attachment?ref=v0.1.0"
   vpc_id      = "vpc-123456789abcdef"
   subnet_ids  = [
+    "subnet-abcdefg0123456789",
+    "subnet-987654321gfedcba0",
+  ]
+  tgw_routes  = [
     "172.16.0.0/12",
-    "172.31.0.0/16"
+    "172.31.0.0/16",
   ]
   tags        = {
     Environment: "test"
